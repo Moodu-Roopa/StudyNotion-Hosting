@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors= require('cors');
 
 const userRoutes = require("./routes/User");
 const profileRoutes = require("./routes/Profile");
@@ -20,6 +21,7 @@ const PORT = process.env.PORT || 4000;
 database.connect();
 //middlewares
 app.use(express.json());
+app.use(cors());
 app.use(cookieParser());
 app.use(
 	cors({
